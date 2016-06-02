@@ -1,4 +1,6 @@
-FROM php:cli
+FROM php:apache
+
+RUN a2enmod rewrite 
 
 # gd
 RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev && apt-get clean
@@ -37,7 +39,3 @@ COPY conf/php.ini /usr/local/etc/php/
 
 # xdebugu configuration
 COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-
-CMD ["php"]
-
-WORKDIR /var/www/html

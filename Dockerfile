@@ -30,7 +30,7 @@ RUN docker-php-ext-install -j$(nproc) mysqli pdo_mysql
 #RUN pecl install -o -f imagick && docker-php-ext-enable imagick
 
 # xdebug
-RUN pecl install -o -f xdebug && docker-php-ext-enable xdebug
+# RUN pecl install -o -f xdebug && docker-php-ext-enable xdebug
 
 # php.ini
 COPY conf/php.ini /usr/local/etc/php/

@@ -29,9 +29,6 @@ RUN docker-php-ext-install -j$(nproc) mysqli pdo_mysql
 #RUN ln -s /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/MagickWand-config /usr/bin
 #RUN pecl install -o -f imagick && docker-php-ext-enable imagick
 
-# xdebug
-# RUN pecl install -o -f xdebug && docker-php-ext-enable xdebug
-
 # php.ini
 COPY conf/php.ini /usr/local/etc/php/
 
@@ -41,3 +38,6 @@ COPY conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 CMD ["php"]
 
 WORKDIR /var/www/html
+
+# expose Symfony server port
+EXPOSE 8000
